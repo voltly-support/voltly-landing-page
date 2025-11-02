@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 
 const Hero = () => {
+  const scrollToVideo = () => {
+    document.getElementById('demo-video')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Chrome Background */}
@@ -53,7 +60,7 @@ const Hero = () => {
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-voltly-blue to-electric-blue opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
           </Button>
           
-          <button className="text-voltly-charcoal hover:text-voltly-blue transition-colors duration-300 flex items-center gap-3 text-xl font-medium group bg-white/80 backdrop-blur-sm px-8 py-4 rounded-2xl border-2 border-voltly-mint/50 hover:bg-white hover:border-voltly-mint shadow-lg hover:shadow-xl">
+          <button onClick={scrollToVideo} className="text-voltly-charcoal hover:text-voltly-blue transition-colors duration-300 flex items-center gap-3 text-xl font-medium group bg-white/80 backdrop-blur-sm px-8 py-4 rounded-2xl border-2 border-voltly-mint/50 hover:bg-white hover:border-voltly-mint shadow-lg hover:shadow-xl">
             <div className="w-12 h-12 bg-voltly-mint/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-voltly-mint/30">
               <Play className="w-6 h-6 text-voltly-mint group-hover:animate-pulse" fill="currentColor" />
             </div>
@@ -61,19 +68,18 @@ const Hero = () => {
           </button>
         </div>
         
-        {/* Demo Video Placeholder */}
-        <div className="mt-20 relative animate-fade-in" style={{ animationDelay: '0.6s' }}>
+        {/* Demo Video */}
+        <div id="demo-video" className="mt-20 relative animate-fade-in" style={{ animationDelay: '0.6s' }}>
           <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl hover:shadow-voltly-mint/20 transition-all duration-500 hover:scale-[1.02]">
-            <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-voltly-mint/10 to-voltly-blue/10 animate-pulse" />
-              <div className="text-center relative z-10">
-                <div className="w-24 h-24 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 hover:scale-110 transition-transform duration-300 cursor-pointer group">
-                  <Play className="w-10 h-10 text-voltly-blue ml-2 group-hover:animate-pulse" fill="currentColor" />
-                </div>
-                <p className="text-gray-600 font-semibold text-lg">3-Minute Demo Video</p>
-                <p className="text-sm text-gray-500 mt-2">Watch Voltly AI transform utility data in real-time</p>
-              </div>
-            </div>
+            <video
+              className="aspect-video rounded-2xl w-full shadow-2xl"
+              controls
+              preload="metadata"
+              poster="/lovable-uploads/ad70b136-23cb-429b-b095-2fa01f8f8ff4.png"
+            >
+              <source src="https://odkfyjnbwjj1o4iy.public.blob.vercel-storage.com/voltly_promo_vid_2025.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </div>
