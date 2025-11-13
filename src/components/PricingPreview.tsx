@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
+import { scrollToWaitlist } from "@/lib/utils";
 
 const plans = [
   {
@@ -20,10 +21,9 @@ const plans = [
     status: "Early Access",
     description: "For growing businesses and consultants",
     features: [
-      "Unlimited bill uploads",
+      "Upload up to 50 bills per month",
       "Advanced analytics",
       "Automated alerts", 
-      "API access",
       "Priority support",
       "Custom reports"
     ],
@@ -35,10 +35,10 @@ const plans = [
     description: "For large organizations with specific needs",
     features: [
       "Everything in Pro",
+      "Unlimited bill uploads",
       "Dedicated account manager",
       "Custom integrations",
       "SLA guarantee", 
-      "On-premise deployment",
       "Training & onboarding"
     ],
     highlight: false
@@ -47,7 +47,7 @@ const plans = [
 
 const PricingPreview = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-voltly-gray relative overflow-hidden">
+    <section id="pricing" className="py-24 bg-gradient-to-b from-white to-voltly-gray relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(0,240,181,0.05),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,rgba(0,123,255,0.05),transparent_50%)]" />
@@ -121,10 +121,11 @@ const PricingPreview = () => {
                     ))}
                   </ul>
                   
-                  <Button 
+                  <Button
+                    onClick={scrollToWaitlist}
                     className={`w-full py-4 text-lg font-semibold rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
-                      plan.highlight 
-                        ? 'gradient-mint text-white hover:shadow-voltly-mint/25' 
+                      plan.highlight
+                        ? 'gradient-mint text-white hover:shadow-voltly-mint/25'
                         : 'bg-white border-2 border-voltly-charcoal text-voltly-charcoal hover:bg-voltly-charcoal hover:text-white'
                     }`}
                   >
