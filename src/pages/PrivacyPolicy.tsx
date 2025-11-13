@@ -1,19 +1,16 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import Footer from "@/components/Footer";
+import SimpleNav from "@/components/SimpleNav";
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-voltly-gray">
+      <SimpleNav />
+
       {/* Header */}
-      <div className="bg-voltly-charcoal text-white py-8">
+      <div className="bg-voltly-charcoal text-white py-8 text-center">
         <div className="max-w-4xl mx-auto px-6">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-voltly-mint hover:text-white transition-colors duration-300 mb-6"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            Back to Home
-          </Link>
           <h1 className="text-4xl md:text-5xl font-bold">Privacy Policy</h1>
           <p className="text-gray-300 mt-4">Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
         </div>
@@ -241,6 +238,8 @@ const PrivacyPolicy = () => {
           </Link>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };

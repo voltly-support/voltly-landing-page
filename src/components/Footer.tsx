@@ -1,14 +1,16 @@
 
 import { ArrowUp } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { scrollToElement } from "@/lib/utils";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const links = {
     Product: ["Features", "Pricing", "Security"],
     Company: ["About", "Blog", "Contact"],
     Resources: ["Help Center", "Status"],
-    Legal: ["Privacy", "Terms", "GDPR", "Cookies"]
+    Legal: ["Privacy", "Terms", "GDPR"]
   };
 
   // Map link names to section IDs for scroll navigation
@@ -38,7 +40,18 @@ const Footer = () => {
   const handleLinkClick = (item: string) => {
     const sectionId = sectionMap[item];
     if (sectionId) {
-      scrollToElement(sectionId);
+      // Check if we're on the home page
+      if (location.pathname === '/') {
+        // Already on home page, just scroll to section
+        scrollToElement(sectionId);
+      } else {
+        // Navigate to home page first, then scroll after navigation
+        navigate('/');
+        // Use setTimeout to allow navigation to complete before scrolling
+        setTimeout(() => {
+          scrollToElement(sectionId);
+        }, 100);
+      }
     }
   };
 

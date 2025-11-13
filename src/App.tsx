@@ -10,6 +10,7 @@ import TermsOfService from "./pages/TermsOfService";
 import GDPR from "./pages/GDPR";
 import About from "./pages/About";
 import CookieConsent from "./components/CookieConsent";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <CookieConsent />
         <Routes>
           <Route path="/" element={<Index />} />

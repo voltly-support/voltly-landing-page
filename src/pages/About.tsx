@@ -1,11 +1,13 @@
 import { ArrowLeft, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import Footer from "@/components/Footer";
+import SimpleNav from "@/components/SimpleNav";
 
 const About = () => {
   const teamMembers = [
     {
       role: "CEO",
-      name: "John Doe",
+      name: "Adrian Bond",
       title: "Chief Executive Officer",
       bio: "Visionary leader with 15+ years of experience in energy technology and AI innovation. Passionate about transforming utility management through intelligent automation.",
       image: "/placeholder-ceo.jpg",
@@ -14,7 +16,7 @@ const About = () => {
     },
     {
       role: "CTO",
-      name: "Jane Smith",
+      name: "Alan Bond",
       title: "Chief Technology Officer",
       bio: "Technology expert specializing in AI/ML systems and cloud infrastructure. Leading our technical vision to build cutting-edge utility intelligence solutions.",
       image: "/placeholder-cto.jpg",
@@ -23,8 +25,8 @@ const About = () => {
     },
     {
       role: "CIO",
-      name: "Michael Johnson",
-      title: "Chief Information Officer",
+      name: "Collin Partee",
+      title: "Chief Innovation Officer",
       bio: "Information systems strategist focused on data security, compliance, and enterprise architecture. Ensuring our platform meets the highest standards of reliability and security.",
       image: "/placeholder-cio.jpg",
       linkedin: "#",
@@ -34,16 +36,11 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-voltly-gray">
+      <SimpleNav />
+
       {/* Header */}
-      <div className="bg-voltly-charcoal text-white py-8">
+      <div className="bg-voltly-charcoal text-white py-8 text-center">
         <div className="max-w-6xl mx-auto px-6">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-voltly-mint hover:text-white transition-colors duration-300 mb-6"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            Back to Home
-          </Link>
           <h1 className="text-4xl md:text-5xl font-bold">About Voltly AI</h1>
           <p className="text-gray-300 mt-4 text-lg">
             Transforming utility bill management with intelligent automation
@@ -186,6 +183,8 @@ const About = () => {
           </Link>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };
