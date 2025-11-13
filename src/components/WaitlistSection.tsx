@@ -27,7 +27,7 @@ const WaitlistSection = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-voltly-charcoal via-gray-900 to-voltly-charcoal relative overflow-hidden">
+    <section id="waitlist" className="py-24 bg-gradient-to-br from-voltly-charcoal via-gray-900 to-voltly-charcoal relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,240,181,0.1),transparent_70%)] animate-pulse" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(0,123,255,0.1),transparent_50%)]" />

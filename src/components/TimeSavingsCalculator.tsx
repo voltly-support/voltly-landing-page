@@ -39,7 +39,7 @@ const TimeSavingsCalculator = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-voltly-charcoal mb-6">
             See How Much Time You'll Save with{" "}
             <span className="bg-gradient-to-r from-voltly-mint to-voltly-blue bg-clip-text text-transparent">
-              Voltly AI
+              Voltly.AI
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">

@@ -29,7 +29,7 @@ const BeforeAfter = () => {
                   </div>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-voltly-charcoal mb-4">Pre-Voltly</h3>
+              <h3 className="text-2xl font-bold text-voltly-charcoal mb-4">Without Voltly</h3>
               <ul className="text-gray-600 space-y-2">
                 <li>Manual data entry</li>
                 <li>Scattered spreadsheets</li>
@@ -69,7 +69,7 @@ const BeforeAfter = () => {
                   </svg>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-voltly-charcoal mb-4">Post-Voltly</h3>
+              <h3 className="text-2xl font-bold text-voltly-charcoal mb-4">With Voltly</h3>
               <ul className="text-gray-600 space-y-2">
                 <li>Instant data extraction</li>
                 <li>Unified dashboard</li>
