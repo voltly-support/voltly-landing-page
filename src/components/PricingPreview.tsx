@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
+import { scrollToWaitlist } from "@/lib/utils";
 
 const plans = [
   {
@@ -121,10 +122,11 @@ const PricingPreview = () => {
                     ))}
                   </ul>
                   
-                  <Button 
+                  <Button
+                    onClick={scrollToWaitlist}
                     className={`w-full py-4 text-lg font-semibold rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
-                      plan.highlight 
-                        ? 'gradient-mint text-white hover:shadow-voltly-mint/25' 
+                      plan.highlight
+                        ? 'gradient-mint text-white hover:shadow-voltly-mint/25'
                         : 'bg-white border-2 border-voltly-charcoal text-voltly-charcoal hover:bg-voltly-charcoal hover:text-white'
                     }`}
                   >

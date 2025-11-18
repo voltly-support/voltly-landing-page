@@ -1,5 +1,6 @@
 
 import { ArrowRight, TrendingUp, Shield, AlertTriangle } from "lucide-react";
+import { scrollToWaitlist } from "@/lib/utils";
 
 const features = [
   {
@@ -42,8 +43,11 @@ const FeaturesDetail = () => {
                 <p className={`text-xl ${feature.textColor === 'text-white' ? 'text-gray-300' : 'text-gray-600'} mb-8 leading-relaxed`}>
                   {feature.description}
                 </p>
-                <button className={`${feature.textColor === 'text-white' ? 'text-voltly-mint hover:text-white' : 'text-voltly-blue hover:text-voltly-charcoal'} font-semibold text-lg flex items-center gap-2 group transition-colors duration-300`}>
-                  Learn More 
+                <button
+                  onClick={scrollToWaitlist}
+                  className={`${feature.textColor === 'text-white' ? 'text-voltly-mint hover:text-white' : 'text-voltly-blue hover:text-voltly-charcoal'} font-semibold text-lg flex items-center gap-2 group transition-colors duration-300`}
+                >
+                  Learn More
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
               </div>

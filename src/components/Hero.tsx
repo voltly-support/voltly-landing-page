@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
+import { scrollToWaitlist } from "@/lib/utils";
 
 const Hero = () => {
   const scrollToVideo = () => {
@@ -52,11 +53,12 @@ const Hero = () => {
         
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up" style={{ animationDelay: '0.3s' }}>
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
+            onClick={scrollToWaitlist}
             className="gradient-blue text-white px-10 py-6 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-voltly-blue/25 hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 group"
           >
-            Create Free Account
+            Join Our Waitlist
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-voltly-blue to-electric-blue opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
           </Button>
           
