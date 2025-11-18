@@ -1,14 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
-import { scrollToWaitlist } from "@/lib/utils";
+import { scrollToWaitlist, scrollToElement } from "@/lib/utils";
 
 const Hero = () => {
   const scrollToVideo = () => {
-    document.getElementById('demo-video')?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center'
-    });
+    scrollToElement('demo-video');
   };
 
   return (
@@ -28,17 +25,17 @@ const Hero = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         {/* Logo */}
         <div className="mb-12 animate-fade-in">
-          <img 
+          {/* <img 
             src="/lovable-uploads/ad70b136-23cb-429b-b095-2fa01f8f8ff4.png"
             alt="Voltly AI Logo"
             className="h-20 mx-auto filter drop-shadow-2xl hover:scale-105 transition-transform duration-300"
-          />
+          /> */}
         </div>
         
         {/* Main Headline */}
         <h1 className="text-6xl md:text-8xl font-bold mb-8 animate-fade-in text-voltly-charcoal">
           <span className="bg-gradient-to-r from-voltly-mint via-voltly-blue to-voltly-mint bg-clip-text text-transparent bg-size-200 animate-gradient">
-            Voltly AI
+            Voltly.AI
           </span>
           <br />
           <span className="text-4xl md:text-5xl text-gray-700">
@@ -71,7 +68,7 @@ const Hero = () => {
         </div>
         
         {/* Demo Video */}
-        <div id="demo-video" className="mt-20 relative animate-fade-in" style={{ animationDelay: '0.6s' }}>
+        <div id="demo-video" className="mt-20 relative animate-fade-in p-8 pb-24" style={{ animationDelay: '0.6s' }}>
           <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl hover:shadow-voltly-mint/20 transition-all duration-500 hover:scale-[1.02]">
             <video
               className="aspect-video rounded-2xl w-full shadow-2xl"

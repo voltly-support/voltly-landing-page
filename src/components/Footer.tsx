@@ -1,16 +1,90 @@
 
 import { ArrowUp } from "lucide-react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { scrollToElement } from "@/lib/utils";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const links = {
-    Product: ["Features", "Pricing", "API", "Security"],
-    Company: ["About", "Blog", "Careers", "Contact"],
-    Resources: ["Documentation", "Help Center", "Status", "Changelog"],
-    Legal: ["Privacy", "Terms", "GDPR", "Cookies"]
+    Product: ["Features", "Pricing", "Security"],
+    Company: ["About", "Blog", "Contact"],
+    Resources: ["Help Center", "Status"],
+    Legal: ["Privacy", "Terms", "GDPR"]
+  };
+
+  // Map link names to section IDs for scroll navigation
+  const sectionMap: Record<string, string> = {
+    "Features": "features",
+    "Pricing": "pricing",
+    "Security": "features"
+  };
+
+  // Map link names to page routes
+  const routeMap: Record<string, string> = {
+    "About": "/about",
+    "Privacy": "/privacy",
+    "Terms": "/terms",
+    "GDPR": "/gdpr"
+  };
+
+  // Map link names to mailto links
+  const mailtoMap: Record<string, string> = {
+    "Contact": "mailto:support@voltly.ai"
   };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleLinkClick = (item: string) => {
+    const sectionId = sectionMap[item];
+    if (sectionId) {
+      // Check if we're on the home page
+      if (location.pathname === '/') {
+        // Already on home page, just scroll to section
+        scrollToElement(sectionId);
+      } else {
+        // Navigate to home page first, then scroll after navigation
+        navigate('/');
+        // Use setTimeout to allow navigation to complete before scrolling
+        setTimeout(() => {
+          scrollToElement(sectionId);
+        }, 100);
+      }
+    }
+  };
+
+  const getLinkElement = (item: string, index: number) => {
+    const route = routeMap[item];
+    const mailto = mailtoMap[item];
+    const baseClasses = "text-gray-400 hover:text-voltly-mint transition-colors duration-300 text-sm hover:translate-x-1 transform inline-block";
+
+    if (route) {
+      return (
+        <Link key={index} to={route} className={baseClasses}>
+          {item}
+        </Link>
+      );
+    }
+
+    if (mailto) {
+      return (
+        <a key={index} href={mailto} className={baseClasses}>
+          {item}
+        </a>
+      );
+    }
+
+    return (
+      <button
+        key={index}
+        onClick={() => handleLinkClick(item)}
+        className={baseClasses}
+      >
+        {item}
+      </button>
+    );
   };
 
   return (
@@ -54,9 +128,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {items.map((item, itemIndex) => (
                   <li key={itemIndex}>
-                    <button className="text-gray-400 hover:text-voltly-mint transition-colors duration-300 text-sm hover:translate-x-1 transform inline-block">
-                      {item}
-                    </button>
+                    {getLinkElement(item, itemIndex)}
                   </li>
                 ))}
               </ul>
@@ -69,8 +141,6 @@ const Footer = () => {
             © 2024 Voltly AI. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0 items-center">
-            <button className="text-gray-400 hover:text-white text-sm transition-colors duration-300">Privacy Policy</button>
-            <button className="text-gray-400 hover:text-white text-sm transition-colors duration-300">Terms of Service</button>
             
             {/* Back to Top Button */}
             <button 
