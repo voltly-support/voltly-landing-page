@@ -3,7 +3,7 @@ import { useState } from "react";
 import CalculatorInput from "./calculator/CalculatorInput";
 import ResultsCard from "./calculator/ResultsCard";
 import BenefitsGrid from "./calculator/BenefitsGrid";
-import WaitlistForm from "./calculator/WaitlistForm";
+
 
 const TimeSavingsCalculator = () => {
   const [invoiceCount, setInvoiceCount] = useState(100);
@@ -59,8 +59,6 @@ const TimeSavingsCalculator = () => {
         />
 
         <BenefitsGrid />
-
-        <WaitlistForm />
       </div>
     </section>
   );

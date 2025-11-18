@@ -24,5 +24,8 @@ export function scrollToElement(
  * Scrolls to the waitlist section
  */
 export function scrollToWaitlist() {
-  scrollToElement('waitlist');
+  document.getElementById('early-access')?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  });
 }
